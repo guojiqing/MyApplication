@@ -10,4 +10,9 @@ public class WelcomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }
