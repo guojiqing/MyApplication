@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context="com.example.gjq.myapp.news.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="这里是菜单"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        android:background="#000"/>
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            style="@style/RadioStyle"
+            android:drawableTop="@drawable/txt_home_selector"
+            android:onClick="btnHome" />
+        <RadioButton
+            style="@style/RadioStyle"
+            android:drawableTop="@drawable/txt_info_selector"
+            android:onClick="btnInfo" />
+        <RadioButton
+            style="@style/RadioStyle"
+            android:drawableTop="@drawable/txt_start_selector"
+            android:onClick="btnStart" />
+
+    </RadioGroup>
+
+</LinearLayout>
