@@ -8,38 +8,38 @@
     android:padding="5dp"
     tools:context="com.example.gjq.myapp.news.MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="这里是菜单"
-        android:textColor="#fff"
-        android:textSize="30dp"
-        android:background="#000"/>
-
-    <ListView
-        android:id="@+id/lv"
+    <com.example.gjq.myapp.view.NoScrollViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
     <RadioGroup
+        android:id="@+id/rbGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <RadioButton
-            style="@style/RadioStyle"
-            android:drawableTop="@drawable/txt_home_selector"
-            android:onClick="btnHome" />
+            style="@style/MainButton"
+            android:drawableTop="@drawable/main_btn_home_selector"
+            android:id="@+id/rbHome"
+            android:text="首页"/>
         <RadioButton
-            style="@style/RadioStyle"
-            android:drawableTop="@drawable/txt_info_selector"
-            android:onClick="btnInfo" />
+            style="@style/MainButton"
+            android:drawableTop="@drawable/main_btn_time_selector"
+            android:id="@+id/rbTime"
+            android:text="时间链"/>
         <RadioButton
-            style="@style/RadioStyle"
-            android:drawableTop="@drawable/txt_start_selector"
-            android:onClick="btnStart" />
+            style="@style/MainButton"
+            android:drawableTop="@drawable/main_btn_tv_selector"
+            android:id="@+id/rbTv"
+            android:text="电视"/>
+        <RadioButton
+            style="@style/MainButton"
+            android:drawableTop="@drawable/main_btn_about_selector"
+            android:id="@+id/rbAbout"
+            android:text="我的"/>
 
     </RadioGroup>
 

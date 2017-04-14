@@ -25,17 +25,13 @@
         <item name="android:layout_marginBottom">80dp</item>
     </style>
 
-    <style name="BtnBaseStyle">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">#0000</item>
-        <item name="android:textColor">@color/txt_color_selector</item>
-    </style>
-
-    <style name="RadioStyle" parent="BtnBaseStyle">
-        <item name="android:button">@null</item>
+    <style name="MainButton">
         <item name="android:gravity">center_horizontal</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

@@ -17,11 +17,18 @@ import android.widget.RelativeLayout;
 import com.example.gjq.myapp.utils.DensityUtils;
 import com.example.gjq.myapp.utils.SharedPreUtils;
 
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@ContentView(R.layout.activity_welcome)
 public class WelcomeActivity extends Activity {
+    @ViewInject(R.id.viewpager)
     private ViewPager viewPager;
+    @ViewInject(R.id.ll)
     private LinearLayout ll;
     private int pointMoveWidth = 0;
     private Button btnStart = null;
@@ -30,9 +37,10 @@ public class WelcomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        x.view().inject(this);
+//        setContentView(R.layout.activity_welcome);
         // 绑定组件
-        initView();
+//        initView();
         // 初始化数据
         initData();
         Log.i("crc", this.getResources().getDisplayMetrics().density + "");  // 3.0
@@ -50,10 +58,10 @@ public class WelcomeActivity extends Activity {
         startActivity(intent);
     }
 
-    private void initView() {
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        ll = (LinearLayout) findViewById(R.id.ll);
-    }
+//    private void initView() {
+//        viewPager = (ViewPager) findViewById(R.id.viewpager);
+//        ll = (LinearLayout) findViewById(R.id.ll);
+//    }
 
     private void initData() {
         viewPager.setAdapter(new WelcomePage());
