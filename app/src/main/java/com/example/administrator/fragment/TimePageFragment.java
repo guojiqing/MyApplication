@@ -81,6 +81,7 @@ public class TimePageFragment extends Fragment {
                 return view;
             }
         });
+
     }
 
     @Override

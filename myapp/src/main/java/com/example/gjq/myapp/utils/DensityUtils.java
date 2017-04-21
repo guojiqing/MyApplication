@@ -17,4 +17,5 @@ public class DensityUtils {
     public static int px2dpi(Context ctx, int px) {
         return (int) (px / ctx.getResources().getDisplayMetrics().density);
     }
+
 }

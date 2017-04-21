@@ -1,17 +1,15 @@
 package com.example.gjq.myapp.news;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
+
+import com.example.gjq.myapp.fragment.HomePageFragment;
+import com.example.gjq.myapp.fragment.TimePageFragment;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -21,10 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ContentView(value = R.layout.activity_main)
-public class MainActivity extends Activity {
+public class  MainActivity extends FragmentActivity {
 
-//    private List<News> newsList;
-//    private MyAdapter myAdapter;
     @ViewInject(R.id.rbGroup)
     private RadioGroup radioGroup;
     @ViewInject(R.id.viewpager)
@@ -48,7 +44,8 @@ public class MainActivity extends Activity {
 
     private void initData() {
 
-        viewpager.setAdapter(new MainPage());
+        viewpager.setAdapter(new MainFragmentPage(getSupportFragmentManager()));
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
@@ -67,82 +64,26 @@ public class MainActivity extends Activity {
         });
     }
 
-    private class MainPage extends PagerAdapter {
+    private class MainFragmentPage extends FragmentPagerAdapter{
 
-        List<View> iList = new ArrayList<View>();
-
-        public MainPage() {
-            iList.add(View.inflate(MainActivity.this, R.layout.home_page, null));
-            iList.add(View.inflate(MainActivity.this, R.layout.time_page, null));
+        List<Fragment> iList = new ArrayList<Fragment>();
+        public MainFragmentPage(FragmentManager fm) {
+            super(fm);
+            iList.add(new HomePageFragment());
+            iList.add(new TimePageFragment());
         }
 
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            View view = (View) iList.get(position);
-            container.addView(view);
-            return view;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView((View) object);
+        public Fragment getItem(int position) {
+            return iList.get(position);
         }
 
         @Override
         public int getCount() {
             return iList.size();
         }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
     }
 
-//    private void loadData() {
-//
-//        newsList = new ArrayList<News>();
-//        for (int i = 0; i < 20; i++) {
-//            newsList.add(new News("新闻" + i, "新闻副标题" + i + "-" + i));
-//        }
-//        ListView lv = (ListView) findViewById(R.id.lv);
-//        myAdapter = new MyAdapter();
-//        lv.setAdapter(myAdapter);
-//    }
-
-//    private class MyAdapter extends BaseAdapter {
-//
-//        @Override
-//        public int getCount() {
-//            return newsList.size();
-//        }
-//
-//        @Override
-//        public Object getItem(int i) {
-//            return newsList.get(i);
-//        }
-//
-//        @Override
-//        public long getItemId(int i) {
-//            return 0;
-//        }
-//
-//        @Override
-//        public View getView(int i, View view, ViewGroup viewGroup) {
-//            View item = null;
-//            if (view != null) {
-//                item = view;
-//            } else {
-//                item = View.inflate(MainActivity.this, R.layout.list_item, null);
-//            }
-//            TextView title = (TextView) item.findViewById(R.id.newsTitle);
-//            TextView subTitle = (TextView) item.findViewById(R.id.subTitle);
-//            News news = (News) getItem(i);
-//            title.setText(news.getTitle());
-//            subTitle.setText(news.getSubTitle());
-//            return item;
-//        }
-//    }
 
 
 }

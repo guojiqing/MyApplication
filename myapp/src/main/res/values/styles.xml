@@ -39,6 +39,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="MyTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">#00f</item>
+        <item name="tabSelectedTextColor">#00f</item>
+        <item name="tabTextColor">#999</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

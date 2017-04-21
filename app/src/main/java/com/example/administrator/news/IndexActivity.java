@@ -39,7 +39,7 @@ public class IndexActivity extends Activity {
     @Event(value = R.id.btn_http)
     private void http(View view) {
         Log.i("jxy", "abc............");
-        RequestParams params = new RequestParams("http://www.jxy-edu.com/info.txt");
+        RequestParams params = new RequestParams("http://hiwbs101083.jsp.jspee.com.cn/NewServlet");
         params.addQueryStringParameter("name", "xUtils");
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
@@ -79,7 +79,7 @@ public class IndexActivity extends Activity {
 // 得到ImageOptions对象
                 .build();
 // 加载图片
-        x.image().bind(iv, "http://www.jxy-edu.com/hehe.png", options, new Callback.CommonCallback<Drawable>() {
+        x.image().bind(iv, "http://hiwbs101083.jsp.jspee.com.cn/image/hehe.png", options, new Callback.CommonCallback<Drawable>() {
             @Override
             public void onSuccess(Drawable arg0) {
                 Log.i("jxy", "onSuccess........");
